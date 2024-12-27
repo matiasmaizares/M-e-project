@@ -1,0 +1,10 @@
+<div class="p-6 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4 text-yellow-500 capitalize">
+    {{ level }} Profiles
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+    <div *ngFor="let profile of profiles">
+      <app-card-profile [profile]="profile"></app-card-profile>
+    </div>
+  </div>
+</div>

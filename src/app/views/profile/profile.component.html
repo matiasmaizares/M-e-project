@@ -1,0 +1,72 @@
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <!-- Contenedor Principal -->
+  <div class="flex flex-col lg:flex-row gap-8">
+    <!-- Foto a la Izquierda -->
+    <div class="w-full lg:w-1/3">
+      <img
+        class="w-full h-auto rounded-lg shadow-lg object-cover"
+        src="https://via.placeholder.com/400x600"
+        alt="Foto de Perfil"
+      />
+    </div>
+
+    <!-- Datos a la Derecha -->
+    <div class="w-full lg:w-2/3">
+      <h1 class="text-3xl font-bold mb-4">Nombre: {{ profile.nombre }}</h1>
+      <p class="text-lg mb-2">
+        <strong>Ubicación:</strong> {{ profile.ubicacion }}
+      </p>
+      <p class="text-lg mb-2">
+        <strong>Precio:</strong> ${{ profile.precio }} {{ profile.moneda }}
+      </p>
+      <p class="text-lg mb-2"><strong>Edad:</strong> {{ profile.edad }} años</p>
+      <p class="text-lg mb-2">
+        <strong>Altura:</strong> {{ profile.altura }} m
+      </p>
+      <p class="text-lg mb-6">
+        <strong>Descripción:</strong> {{ profile.descripcion }}
+      </p>
+      <!-- Botón para WhatsApp -->
+      <a
+        [href]="
+          'https://wa.me/' +
+          profile.telefono +
+          '?text=Hola%20' +
+          profile.nombre +
+          ',%20me%20interesa%20contactarte.'
+        "
+        target="_blank"
+        class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition inline-block"
+      >
+        Enviar Mensaje por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-bold mt-8">Galería</h2>
+
+  <!-- Galería de Fotos -->
+  <div class="mt-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <img
+        *ngFor="let foto of profile.fotos"
+        class="w-full h-auto rounded-lg shadow-lg object-cover"
+        [src]="foto"
+        [alt]="profile.nombre"
+      />
+    </div>
+  </div>
+  <!-- Galería de Videos -->
+  <div class="mt-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <video
+        *ngFor="let video of profile.videos"
+        class="w-full h-auto rounded-lg shadow-lg"
+        controls
+      >
+        <source [src]="video" type="video/mp4" />
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<nav class="bg-gray-800 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Primera Fila -->
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-bold">Mi Sitio</a>
+      </div>
+      <!-- Buscador -->
+      <div class="flex-grow px-4 mx-auto hide-450">
+        <input
+          type="text"
+          placeholder="Buscar..."
+          (click)="openModal()"
+          class="w-64 rounded-md bg-gray-700 text-white px-4 py-2 focus:outline-none focus:ring focus:ring-blue-500"
+        />
+      </div>
+
+      <!-- Menú Desktop -->
+      <div class="hidden md:flex space-x-4 items-center">
+        <a
+          routerLink="/contact"
+          class="px-4 py-2 bg-white text-gray-800 rounded-md shadow-md hover:bg-gray-200 cursor-pointer transition"
+          >Publica</a
+        >
+      </div>
+
+      <!-- Botón de menú móvil -->
+      <div class="md:hidden flex items-center">
+        <button
+          class="text-gray-400 hover:text-white focus:outline-none"
+          (click)="toggleMenu()"
+        >
+          <svg
+            class="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div
+      *ngIf="isMenuOpen"
+      class="md:hidden flex flex-col space-y-4 py-4 border-t border-gray-700"
+    >
+      <!-- Buscador -->
+      <div class="px-4">
+        <input
+          type="text"
+          placeholder="Buscar..."
+          class="w-full rounded-md bg-gray-700 text-white px-4 py-2 focus:outline-none focus:ring focus:ring-blue-500"
+        />
+      </div>
+
+      <!-- Secciones -->
+      <a
+        class="px-4 py-2 text-white hover:bg-gray-600 transition cursor-pointer"
+        >Nuevos ingresos</a
+      >
+      <a
+        routerLink="/profile-list/gold"
+        class="px-4 py-2 text-white hover:bg-gray-600 transition cursor-pointer"
+        >Gold</a
+      >
+      <a
+        routerLink="/profile-list/platinum"
+        class="px-4 py-2 text-white hover:bg-gray-600 transition cursor-pointer"
+        >Platinum</a
+      >
+      <a
+        routerLink="/profile-list/silver"
+        class="px-4 py-2 text-white hover:bg-gray-600 transition cursor-pointer"
+        >Silver</a
+      >
+      <a
+        routerLink="/profile-list/diamond"
+        class="px-4 py-2 text-white hover:bg-gray-600 transition cursor-pointer"
+        >Diamond</a
+      >
+
+      <!-- Botón Publicar -->
+      <div class="px-4">
+        <a
+          routerLink="/contact"
+          class="block px-4 py-2 bg-white text-gray-800 rounded-md shadow-md hover:bg-gray-200 transition cursor-pointer"
+          >Publica</a
+        >
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <app-modal
+      [isVisible]="isModalVisible"
+      [title]="'Buscar'"
+      (closeModal)="closeModal()"
+    >
+      <p>
+        Aquí puedes añadir contenido dinámico, como un formulario de búsqueda.
+      </p>
+    </app-modal>
+  </div>
+</nav>

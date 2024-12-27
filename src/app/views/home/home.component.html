@@ -1,0 +1,54 @@
+<!-- Gold -->
+<div #goldSection id="gold" class="p-6 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4 text-yellow-500">Gold</h2>
+  <div class="grid-container">
+    <div *ngFor="let profile of products?.gold" class="grid-item">
+      <app-card-profile [profile]="profile"></app-card-profile>
+    </div>
+  </div>
+  <!-- Botón Ver Más -->
+  <div class="flex justify-end mt-4">
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition"
+      (click)="navigateToLevel('gold')"
+    >
+      Ver Más
+    </button>
+  </div>
+</div>
+<!-- Sivler -->
+<div class="p-6 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4 text-yellow-500">Silver</h2>
+  <div class="grid-container">
+    <div *ngFor="let profile of products?.silver" class="grid-item">
+      <app-card-profile [profile]="profile"></app-card-profile>
+    </div>
+  </div>
+  <!-- Botón Ver Más -->
+  <div class="flex justify-end mt-4">
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition"
+      (click)="navigateToLevel('silver')"
+    >
+      Ver Más
+    </button>
+  </div>
+</div>
+<!-- Gold -->
+<div #goldSection id="gold" class="p-6 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4 text-yellow-500">Diamond</h2>
+  <div class="grid-container">
+    <div *ngFor="let profile of products?.diamond" class="grid-item">
+      <app-card-profile [profile]="profile"></app-card-profile>
+    </div>
+  </div>
+  <!-- Botón Ver Más -->
+  <div class="flex justify-end mt-4">
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition"
+      (click)="navigateToLevel('diamond')"
+    >
+      Ver Más
+    </button>
+  </div>
+</div>
