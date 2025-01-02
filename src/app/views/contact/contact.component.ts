@@ -12,7 +12,7 @@ export class ContactComponent {
   constructor(private fb: FormBuilder) {
     this.formGroup = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]], // Campo de correo con validación
+      email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       comment: ['', Validators.required],
     });

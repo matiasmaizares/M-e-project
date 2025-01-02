@@ -10,22 +10,100 @@
     >
       ✖
     </button>
-
-    <!-- Modal Header -->
-    <h2 class="text-xl font-bold mb-4">{{ title }}</h2>
-
     <!-- Modal Body -->
     <div class="mb-4">
-      <ng-content></ng-content>
+      <form>
+        <!-- Search Text -->
+        <div class="mb-4">
+          <label for="searchText" class="block text-gray-700">Buscar</label>
+          <input
+            id="searchText"
+            type="text"
+            [(ngModel)]="searchText"
+            class="w-full border rounded-md p-2"
+            placeholder="Buscar por"
+            name="searchText"
+          />
+        </div>
+
+        <!-- Age -->
+        <div class="mb-4">
+          <label for="age" class="block text-gray-700">Edad</label>
+          <input
+            id="age"
+            type="number"
+            [(ngModel)]="selectedAge"
+            class="w-full border rounded-md p-2"
+            placeholder="Ingresar edad"
+            name="age"
+          />
+        </div>
+
+        <!-- Zone -->
+        <div class="mb-4">
+          <label for="zone" class="block text-gray-700">Zona</label>
+          <select
+            id="zone"
+            [(ngModel)]="selectedZone"
+            class="w-full border rounded-md p-2"
+            name="zone"
+          >
+            <option value="">Seleccionar zona</option>
+            <option *ngFor="let zone of zones" [value]="zone">{{ zone }}</option>
+          </select>
+        </div>
+
+        <!-- Price Range -->
+        <div class="mb-4">
+          <label for="priceRange" class="block text-gray-700">Precio</label>
+          <div class="flex items-center gap-2">
+            <input
+              type="number"
+              [(ngModel)]="priceRange[0]"
+              class="w-full border rounded-md p-2"
+              placeholder="Min"
+              name="priceMin"
+            />
+            <span>-</span>
+            <input
+              type="number"
+              [(ngModel)]="priceRange[1]"
+              class="w-full border rounded-md p-2"
+              placeholder="Max"
+              name="priceMax"
+            />
+          </div>
+        </div>
+
+        <!-- Type -->
+        <div class="mb-4">
+          <label for="type" class="block text-gray-700">Tipo</label>
+          <select
+            id="type"
+            [(ngModel)]="selectedType"
+            class="w-full border rounded-md p-2"
+            name="type"
+          >
+            <option value="">Seleccionar tipo</option>
+            <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </form>
     </div>
 
     <!-- Modal Footer -->
-    <div class="flex justify-end">
+    <div class="flex justify-between">
       <button
         class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
         (click)="close()"
       >
-        Close
+        Cerrar
+      </button>
+      <button
+        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        (click)="search()"
+      >
+        Buscar
       </button>
     </div>
   </div>

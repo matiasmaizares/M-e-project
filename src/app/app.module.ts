@@ -9,7 +9,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { ProfileListComponent } from './views/profile-list/profile-list.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CardProfileComponent } from './shared/card-profile/card-profile.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './shared/modal/modal.component';
 
 @NgModule({
@@ -23,7 +23,9 @@ import { ModalComponent } from './shared/modal/modal.component';
     CardProfileComponent,
     ModalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, 
+    FormsModule,
+    ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
